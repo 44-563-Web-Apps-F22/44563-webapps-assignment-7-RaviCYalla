@@ -24,51 +24,110 @@
 
 <div class="container">
     <div class="image-row d-flex justify-content-center">
-    <div><img  width=110 height=110 src="closed.jpg"></div>
-    <div><img  width=110 height=110 src="closed.jpg"></div>
-    <div><img  width=110 height=110 src="closed.jpg"></div>
-    <div><img  width=110 height=110 src="closed.jpg"></div>
-    <div><img  width=110 height=110 src="closed.jpg"></div>
+    <div><img id="id_num1" onclick="check(0)" width=110 height=110 src="closed.jpg"></div>
+    <div><img id="id_num2" onclick="check(1)" width=110 height=110 src="closed.jpg"></div>
+    <div><img id="id_num3" onclick="check(2)" width=110 height=110 src="closed.jpg"></div>
+    <div><img id="id_num4" onclick="check(3)" width=110 height=110 src="closed.jpg"></div>
+    <div><img id="id_num5" onclick="check(4)" width=110 height=110 src="closed.jpg"></div>
 </div>
 </div>
 <div class="container">
     <div class="image-row d-flex justify-content-center">
-    <div><img  width=110 height=110 src="closed.jpg"></div>
-    <div><img  width=110 height=110 src="closed.jpg"></div>
-    <div><img  width=110 height=110 src="closed.jpg"></div>
-    <div><img  width=110 height=110 src="closed.jpg"></div>
-    <div><img  width=110 height=110 src="closed.jpg"></div>
+    <div><img id="id_num6" onclick="check(5)" width=110 height=110 src="closed.jpg"></div>
+    <div><img id="id_num7" onclick="check(6)" width=110 height=110 src="closed.jpg"></div>
+    <div><img id="id_num8" onclick="check(7)" width=110 height=110 src="closed.jpg"></div>
+    <div><img id="id_num9" onclick="check(8)" width=110 height=110 src="closed.jpg"></div>
+    <div><img id="id_num10" onclick="check(9)" width=110 height=110 src="closed.jpg"></div>
 </div>
 </div>
 <div class="container">
     <div class="image-row d-flex justify-content-center">
-    <div><img  width=110 height=110 src="closed.jpg"></div>
-    <div><img  width=110 height=110 src="closed.jpg"></div>
-    <div><img  width=110 height=110 src="help.jpg"></div>
-    <div><img  width=110 height=110 src="closed.jpg"></div>
-    <div><img  width=110 height=110 src="closed.jpg"></div>
+    <div><img id="id_num11" onclick="check(10)" width=110 height=110 src="closed.jpg"></div>
+    <div><img id="id_num12" onclick="check(11)" width=110 height=110 src="closed.jpg"></div>
+    <div><img id="id_num13" onclick="help()" width=110 height=110 src="help.jpg"></div>
+    <div><img id="id_num14" onclick="check(13)" width=110 height=110 src="closed.jpg"></div>
+    <div><img id="id_num15" onclick="check(14)" width=110 height=110 src="closed.jpg"></div>
     </div>
 </div>
 <div class="container">
     <div class="image-row d-flex justify-content-center">
-    <div><img  width=110 height=110 src="closed.jpg"></div>
-    <div><img  width=110 height=110 src="closed.jpg"></div>
-    <div><img  width=110 height=110 src="closed.jpg"></div>
-    <div><img  width=110 height=110 src="closed.jpg"></div>
-    <div><img  width=110 height=110 src="closed.jpg"></div>
+    <div><img id="id_num16" onclick="check(15)" width=110 height=110 src="closed.jpg"></div>
+    <div><img id="id_num17" onclick="check(16)" width=110 height=110 src="closed.jpg"></div>
+    <div><img id="id_num18" onclick="check(17)" width=110 height=110 src="closed.jpg"></div>
+    <div><img id="id_num19" onclick="check(18)" width=110 height=110 src="closed.jpg"></div>
+    <div><img id="id_num20" onclick="check(19)" width=110 height=110 src="closed.jpg"></div>
     </div>
 </div>
 <div class="container">
     <div class="image-row d-flex justify-content-center">
-    <div><img  width=110 height=110 src="closed.jpg"></div>
-    <div><img  width=110 height=110 src="closed.jpg"></div>
-    <div><img  width=110 height=110 src="closed.jpg"></div>
-    <div><img  width=110 height=110 src="closed.jpg"></div>
-    <div><img  width=110 height=110 src="closed.jpg"></div>
+    <div><img id="id_num21" onclick="check(20)" width=110 height=110 src="closed.jpg"></div>
+    <div><img id="id_num22" onclick="check(21)" width=110 height=110 src="closed.jpg"></div>
+    <div><img id="id_num23" onclick="check(22)" width=110 height=110 src="closed.jpg"></div>
+    <div><img id="id_num24" onclick="check(23)" width=110 height=110 src="closed.jpg"></div>
+    <div><img id="id_num25" onclick="check(24)" width=110 height=110 src="closed.jpg"></div>
     </div>
+<script>
+
+var ids=['id_num1','id_num2','id_num3','id_num4','id_num5','id_num6','id_num7','id_num8','id_num9',
+'id_num10','id_num11','id_num12','id_num13','id_num14','id_num15','id_num16','id_num17','id_num18',
+'id_num19','id_num20','id_num21','id_num22','id_num23','id_num24','id_num25']
+    let chestCount =0;
+    let score =0;
+    let lastCheck =12;
+    let treasureLocation = 18;
+    function check(position){
+        var x=ids[position]
+        if(position == treasureLocation){ 
+                document.getElementById(x).src = "treasure.jpg";
+            }
+            else{
+                document.getElementById(x).src="empty.jpg";
+            }
+            chestCount+=  1;
+            score+= 1;
+            document.getElementById("chests").innerHTML = "Number of chests checked is "+chestCount;
+            document.getElementById("score").innerHTML = "Score is "+score;
+            lastCheck = position;
+
+      }
+      function help(){
+
+let column_last = lastCheck % 5;
+    let row_last = Math.floor(lastCheck / 5 );
+    let treasure_Column = treasureLocation % 5;
+    let treasure_Row = Math.floor(treasureLocation / 5);
+    score = score + 2;
+    document.getElementById("score").innerHTML = "Score is "+score;
+    if(treasure_Row == row_last){
+        if(column_last < treasure_Column){
+            document.getElementById("help").innerHTML = "right";
+        }
+        else if(column_last > treasure_Column){
+            document.getElementById("help").innerHTML = "left";
+        }
+        else{
+            document.getElementById("help").innerHTML = "Sorry, no help available" ;
+        }
+    }
+    else if(treasure_Column == column_last){
+        if(row_last < treasure_Row){
+            document.getElementById("help").innerHTML = "down";
+        }
+        else if(row_last > treasure_Row){
+            document.getElementById("help").innerHTML = "up";
+        }
+        else{
+            document.getElementById("help").innerHTML = "Sorry, no help available" ;
+        }
+    }
+    else{
+            document.getElementById("help").innerHTML = "Sorry, no help available" ;
+        }
+      
+
+      }
+
+  </script>
 </div>
-
-
-
 </body>
 </html>
