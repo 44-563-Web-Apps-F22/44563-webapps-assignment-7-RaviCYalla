@@ -28,8 +28,11 @@
      }
 
      function startTime(){
-      for(let x = 0; x <= 3; x++){
-        setTimeout(()=>{document.getElementById("countdown").innerHTML=x},(3-x)*1000);
+        const  countDown = Math.random() * 9;
+      let value = Math.floor(countDown) + 2;
+      console.log(value);
+      for(let j = 0; j <= value; j++){
+        setTimeout(()=>{document.getElementById("countdown").innerHTML=j},(value-j)*1000);
       }
         setTimeout(function(){
         if(myTime == undefined){
@@ -41,6 +44,7 @@
         }
       },3000);
     }
+
   </script>
 </body>
 </html>

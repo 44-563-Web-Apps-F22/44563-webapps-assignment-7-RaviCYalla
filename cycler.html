@@ -39,6 +39,7 @@
 
         <button type = "button" onclick = "get()">Get</button>
         <button type ="button" onclick ="spin()">spin</button>	
+        <button type ="button" onclick ="swap()">swap</button>	
 	
 </body>
 <script>
@@ -72,6 +73,20 @@
 			cyclerItems[cyclerItems.length-1].remove();
 			container.insertBefore(removedItem,container.firstChild);
 		}
+	}
+    function swap(){
+		var cyclerItems = document.getElementsByClassName("cycler");
+            var num1 = Math.random() * cyclerItems.length;
+            var target_class =  document.getElementById("target");
+            var num2 = Math.random() * cyclerItems.length;
+            var element_1 = document.getElementsByClassName("cycler")[Math.floor(num1)];
+            var element_2 = document.getElementsByClassName("cycler")[Math.floor(num2)];
+            if(cyclerItems.length > 1) {
+                var swap = element_1.innerHTML;
+                element_1.innerHTML = element_2.innerHTML;
+                console.log(element_1.innerHTML)
+                element_2.innerHTML = swap;
+            }
 	}
 </script>
 </html>	

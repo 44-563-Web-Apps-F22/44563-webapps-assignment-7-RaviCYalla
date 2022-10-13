@@ -74,7 +74,7 @@ var ids=['id_num1','id_num2','id_num3','id_num4','id_num5','id_num6','id_num7','
     let chestCount =0;
     let score =0;
     let lastCheck =12;
-    let treasureLocation = 18;
+    let treasureLocation = Math.floor(Math.random() * 24);
     function check(position){
         var x=ids[position]
         if(position == treasureLocation){ 
@@ -126,6 +126,24 @@ let column_last = lastCheck % 5;
       
 
       }
+      function resetGame() {
+            chestCount = 0
+            score = 0
+            treasureLocation = Math.floor(Math.random() * 24)
+            if (treasureLocation == 12){
+                treasureLocation = 12 + Math.floor(Math.random() * 12)
+            }
+            document.getElementById("chests").innerHTML = "Number of chests checked is zero."
+            document.getElementById("score").innerHTML = "Score is unknown."
+            for (var j = 0; j < 2; j++) 
+            {
+
+                if (j != 12){
+                    document.getElementById(ids[j]).src = "chest.jpg"
+                }
+            }
+        }
+
 
   </script>
 </div>
